@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="content">
+            <h:form>                
+                <p:growl id="msgs" showDetail="true" />
+                
+                       <div class="panel panel-default">
+                    <div class="panel-body">Contatos Para Dowloand
+                        <h:commandLink >
+                            <p:graphicImage url="/resources/imagens/excel_.png" />
+                            <p:dataExporter type="xls" target="tbl" fileName="ExportExcel"/>
+                        </h:commandLink>
+
+
+                        <h:commandLink>
+                            <p:graphicImage url="/resources/imagens/pdf_.png" />
+                            <p:dataExporter type="pdf" target="tbl" fileName="ExportPdf" pageOnly="false"/>
+                        </h:commandLink>
+                    </div>
+                           
+                    <div class="panel-footer">
+
+                        <p:outputLabel for="dateIni" value="Data Importação" style="width: 100px    "/>
+                        <p:calendar id="dateIni" value="#{dialogoBean.data}"
+                                    pattern="dd-MM-yyyy" mask="true"
+                                    effect="fold"
+                                    showOn="button"/>
+                        <br/>
+
+
+                        <p:commandButton id="btn" value="Listar"  actionListener="#{dialogoBean.listar()}"
+                                         ajax="false"
+                                          style="background-color: #E91E63; color: #FFF"/>                                 
+                    </div>
+                </div>
+       
+                <p:dataTable id="tbl" var="item" value="#{dialogoBean.dialogoDir}"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                             currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}"
+                             paginator="true" rows="15" style="margin-bottom:20px; font-size: 12px">
+                    <f:facet name="{Exporters}">
+
+                        <h:commandLink>
+                            <p:graphicImage  url="/resources/imagens/excel.png"/>  
+                            <p:dataExporter  type="xlsx" target="tbl" fileName="ExportXls"/>
+                        </h:commandLink>
+
+                        <h:commandLink>
+                            <p:graphicImage url="/resources/imagens/pdf_2.png" />
+                            <p:dataExporter type="pdf" target="tbl" fileName="Export2"/>
+                        </h:commandLink>
+                    </f:facet>
+
+
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="CODCONTRIB" />
+                        </f:facet>
+                        <h:outputText value="#{item.codcontrib}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="NOME"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nome}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="TELEFONE1" />
+                        </f:facet>
+                        <h:outputText value="#{item.telefone1}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="TELEFONE2" />
+                        </f:facet>
+                        <h:outputText value="#{item.telefone2}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="CIDADE" />
+                        </f:facet>
+                        <h:outputText value="#{item.cidade}" >
+                        </h:outputText>
+                    </p:column>
+                </p:dataTable>  
+
+
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

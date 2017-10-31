@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"      
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view renderKitId="PRIMEFACES_MOBILE" />
+
+
+    <h:head>
+        <link rel="icon" href="resources/images/ACTION.ico" type="image/ico"/>
+        <title><ui:insert name="title">Time Report</ui:insert></title>
+        <h:outputStylesheet library="css" name="cssLogin.css"/>
+    </h:head>
+
+    <h:body style="background: #DCDCDC">
+
+        <h:form >
+            <p:growl id="growlLogin"/>
+            <div align="center">
+
+                <div class="login-box">
+                    <b>Redefinir Senha</b>
+                </div>
+                <p:panel class="login-painel">
+                    
+                    <h:graphicImage library="imagens" name="logohosp.png"/>
+                    <br/><br/>
+
+                    <p:inputText  id="login" label="login" size="30"
+                                  style="text-align: left;  color: red; font-size: 13px;"
+                                  title="login"
+                                  value="#{alteraSenhaBean.tusuarios.login}">
+                        <f:validateLength minimum="1" maximum="20" />
+                        <p:watermark for="login" value="Usuário" />
+                    </p:inputText>
+
+                    <p:password id="nvsenha"  label="nvsenha" size="30" 
+                                style="text-align: left; color: red; font-size: 13px;"
+                                value="#{alteraSenhaBean.tusuarios.senhajava}"
+                                title="senha" >
+                        <f:validateLength minimum="3" maximum="20" />
+                        <p:watermark for="nvsenha" value="Nova Senha" />         
+                    </p:password>
+                    
+                     <p:commandButton value="Alterar" action="#{alteraSenhaBean.alterasenha()}"
+                                     style="background: #036fab; color: #FFFFFF; width:320px; font-size: 13px"
+                                     ajax="false"
+                                     icon="ui-icon-check" iconPos="right"
+                                     oncomplete="handleLoginRequest(xhr, status, args)"/>
+                     <p:commandButton value="Voltar" action="#{autenticacaoBean.logout()}"
+                                     style="background: #036fab; color: #FFFFFF; width:320px; font-size: 13px"
+                                     id="button"
+                                     ajax="false"
+                                     icon="ui-icon-help" iconPos="right"
+                                     oncomplete="handleLoginRequest(xhr, status, args)"/>                    
+                 
+
+                </p:panel>
+            </div>
+        </h:form>
+
+    </h:body>
+
+</html>
+
+
+

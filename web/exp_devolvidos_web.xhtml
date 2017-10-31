@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="content">
+            <h:form>                
+                <p:growl id="msgs" showDetail="true" />
+
+                <div class="panel panel-default">
+                    <div class="panel-body">Devolvidos Web Para Dowloand
+                        <h:commandLink >
+                            <p:graphicImage url="/resources/imagens/excel_.png" />
+                            <p:dataExporter type="xls" target="tbl" fileName="ExportExcel"/>
+                        </h:commandLink>
+                        
+                        <h:commandLink>
+                            <p:graphicImage url="/resources/imagens/pdf_.png" />
+                            <p:dataExporter type="pdf" target="tbl" fileName="ExportPdf" pageOnly="false"/>
+                        </h:commandLink>
+                    </div>
+                    <div class="panel-footer">
+
+                        <p:outputLabel for="empresa" value="Empresa" class="label"/>
+                        <p:selectOneRadio id="empresa" value="#{devolvidosWebBean.empresa}" class="checkbox"> 
+                            <f:selectItem itemLabel="Solutions" itemValue="Solutions"/>
+                            <f:selectItem itemLabel="Grupo" itemValue="Grupo"/>
+                        </p:selectOneRadio>
+
+                        <p:outputLabel for="dateIni" value="Data Devolução Iní." style="width: 120px"/>
+                        <p:calendar id="dateIni" value="#{devolvidosWebBean.dateini}"
+                                    pattern="dd-MM-yyyy" mask="true"
+                                    effect="fold"
+                                    showOn="button"/>
+                        <br/>
+                        <p:outputLabel for="dateIni" value="Data Devolução Fim" style="width: 120px"/>
+                        <p:calendar id="dateFim" value="#{devolvidosWebBean.datefim}"
+                                    pattern="dd-MM-yyyy" mask="true"
+                                    effect="fold"
+                                    showOn="button"/>
+                        <br/>     
+                        <br/> 
+
+                        <p:commandButton id="btn" value="Listar"  actionListener="#{devolvidosWebBean.listar()}"
+                                         ajax="false"
+                                         update="growl"
+                                         style="background-color: #E91E63; color: #FFF"/>                                 
+                    </div>
+                </div>
+
+
+                <p:dataTable id="tbl" var="item" value="#{devolvidosWebBean.vrecdevolvidoswebs}"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                             currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}"
+                             paginator="true" rows="9" style="margin-bottom:20px; font-size: 12px">
+                    <f:facet name="{Exporters}">
+                        <div style="float:right">
+
+                            <h:commandLink>
+                                <p:graphicImage name="/resources/imagens/pdf_2.png" width="24"/>
+                                <p:dataExporter type="pdf" target="tbl2" fileName="cars" />
+                            </h:commandLink>
+                        </div>
+                    </f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cod Doador" />
+                        </f:facet>
+                        <h:outputText value="#{item.codcontrib}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Data Cobrança"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dtcobranca}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Data Devolução" />
+                        </f:facet>
+                        <h:outputText value="#{item.dtdevolucao}">
+                         <f:convertDateTime pattern="dd/MM/yyyy"/>
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Número Recibo" />
+                        </f:facet>
+                        <h:outputText value="#{item.nrorecibo}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Motivo Devolução" />
+                        </f:facet>
+                        <h:outputText value="#{item.motivodevolucao}" >
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Categoria" />
+                        </f:facet>
+                        <h:outputText value="#{item.cat}" >
+                        </h:outputText>
+                    </p:column>                    
+                </p:dataTable>  
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

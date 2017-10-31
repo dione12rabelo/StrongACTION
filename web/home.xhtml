@@ -1,0 +1,23 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="./principaltemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui">
+    
+    <ui:define name="content">
+        <p:layout fullPage="true">
+            <h:form>                
+                <h:panelGrid columns="2" columnClasses="left,right" style="width:100%">
+                    <p:chart type="line" model="#{graficosHome.animatedModel1}" style="width:500px; margin-left: 100px; color: #2F4F4F;" />
+                    <p:chart type="bar" model="#{graficosHome.animatedModel2}" style="width:500px; color: #2F4F4F;" />
+                    <br/>
+                    <p:chart type="line" model="#{graficosHome.animatedModel3}" style="width:500px; margin-left: -350px; color: #2F4F4F;"/>
+                  
+                </h:panelGrid>        
+
+            </h:form>
+        </p:layout>
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="TimeExportPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>entidades.VExportDialogdireto</class>
+    <class>entidades.Tgrupos</class>
+    <class>entidades.Tusuarios</class>
+    <class>entidades.Tcargos</class>
+    <class>entidades.Tturnos</class>
+    <class>entidades.Tfuncionarios</class>
+    <class>entidades.VInformativo</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:firebirdsql://192.168.0.2:3050/D:/TLMKT/TLMKT.FDB"/>
+      <!--<property name="javax.persistence.jdbc.url" value="jjdbc:firebirdsql://192.168.0.207:3050/DadosSolutions/SOLUTIONSPROD.FDB"/>-->
+      <property name="javax.persistence.jdbc.user" value="SYSDBA"/>
+      <property name="javax.persistence.jdbc.driver" value="org.firebirdsql.jdbc.FBDriver"/>
+      <property name="javax.persistence.jdbc.password" value="glpvmaster"/>
+    </properties>
+  </persistence-unit>
+  
+  <persistence-unit name="TimeExportSO" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>entidades.VExportDialogdireto</class>
+    <class>entidades.Tgrupos</class>
+    <class>entidades.Tusuarios</class>
+    <class>entidades.Tcargos</class>
+    <class>entidades.Tturnos</class>
+    <class>entidades.Tfuncionarios</class>
+    <class>entidades.VInformativo</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:firebirdsql://192.168.0.207:3050//DadosSolutions/SOLUTIONSPROD.FDB"/>
+      <property name="javax.persistence.jdbc.user" value="SYSDBA"/>
+      <property name="javax.persistence.jdbc.driver" value="org.firebirdsql.jdbc.FBDriver"/>
+      <property name="javax.persistence.jdbc.password" value="glpvmaster"/>
+    </properties>
+  </persistence-unit>
+  
+  
+    <persistence-unit name="TimeExportVC" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>entidades.VExportDialogdireto</class>
+    <class>entidades.Tgrupos</class>
+    <class>entidades.Tusuarios</class>
+    <class>entidades.Tcargos</class>
+    <class>entidades.Tturnos</class>
+    <class>entidades.Tfuncionarios</class>
+    <class>entidades.VInformativo</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:firebirdsql://192.168.0.11:3050//BANCODEDADOS/VIRTUALCONPROD.FDB"/>
+      <property name="javax.persistence.jdbc.user" value="SYSDBA"/>
+      <property name="javax.persistence.jdbc.driver" value="org.firebirdsql.jdbc.FBDriver"/>
+      <property name="javax.persistence.jdbc.password" value="glpvmaster"/>
+    </properties>
+  </persistence-unit>
+</persistence>

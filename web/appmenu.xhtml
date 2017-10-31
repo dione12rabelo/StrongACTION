@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h:form id="menuForm">
+
+            <ul class="list">
+                <li class="header">RELATÓRIOS</li>
+
+                <!--<li class="active">
+                    <a href="#{request.contextPath}/index.xhtml">
+                        <i class="material-icons">home</i>
+                        <span>Home</span>
+                    </a>
+                </li>-->
+                <!--Menu Lists-->
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">people</i>
+                        <span>Relacionamento</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li><a href="index.xhtml"><i class="fa fa-circle-o"></i>Relacionamento Com Doador</a></li>
+                        <li><a href="index.xhtml"><i class="fa fa-circle-o"></i>Telecobrança</a></li>
+                        <li><a href="exp_devolvidos_web.xhtml"><i class="fa fa-circle-o"></i>Devolvidos Web</a></li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">swap_calls</i>
+                        <span>Informativos</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li><a href="exp_informativo.xhtml"><i class="fa fa-circle-o"></i>Doadores Novos</a></li>
+
+                    </ul>
+                </li>
+                <!--Fim Menu List-->
+
+                <li class="header">EXPORT</li>
+
+                <li>
+                    <a href="javascript:void" class="menu-toggle">
+                        <i class="material-icons">archive</i>
+                        <span>Dialogo Direto</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="exp_dialogo_direto.xhtml">
+                                <i class="fa fa-circle-o">                                  
+                                </i>Dialogo Direto</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+            </ul>
+
+        </h:form>
+    </ui:composition>
+
+</html>

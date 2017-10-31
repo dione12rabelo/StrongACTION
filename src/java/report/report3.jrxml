@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f99e4226-0a12-4676-bb85-4fb2c8f2d957">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DATA_IMPORT" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     V_EXPORT_DIALOGDIRETO."CODCONTRIB" AS V_EXPORT_DIALOGDIRETO_CODCONTRI,
+     V_EXPORT_DIALOGDIRETO."NOME" AS V_EXPORT_DIALOGDIRETO_NOME,
+     V_EXPORT_DIALOGDIRETO."TELEFONE_1" AS V_EXPORT_DIALOGDIRETO_TELEFONE_1,
+     V_EXPORT_DIALOGDIRETO."TELEFONE_2" AS V_EXPORT_DIALOGDIRETO_TELEFONE_2,
+     V_EXPORT_DIALOGDIRETO."CIDADE" AS V_EXPORT_DIALOGDIRETO_CIDADE
+
+FROM
+     "V_EXPORT_DIALOGDIRETO" V_EXPORT_DIALOGDIRETO
+WHERE
+     V_EXPORT_DIALOGDIRETO."DATA_IMPORT" = $P{DATA_IMPORT}]]>
+	</queryString>
+	<field name="V_EXPORT_DIALOGDIRETO_CODCONTRI" class="java.lang.Integer"/>
+	<field name="V_EXPORT_DIALOGDIRETO_NOME" class="java.lang.String"/>
+	<field name="V_EXPORT_DIALOGDIRETO_TELEFONE_1" class="java.lang.String"/>
+	<field name="V_EXPORT_DIALOGDIRETO_TELEFONE_2" class="java.lang.String"/>
+	<field name="V_EXPORT_DIALOGDIRETO_CIDADE" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="e6091cf9-d296-4fd9-8d41-cf6b10961e91"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="055e45c2-b61a-4e2a-8ce7-1309327703e1"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TITLE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="679619ee-2021-4240-beb4-c97b0bd0e6aa"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Add a description here]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="aff35af9-94af-41fd-af12-b1a0c2fe5c16"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="db57558c-7c8f-4ccd-abc2-056fc2bf9c8d"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODCONTRI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="92" y="0" width="124" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="326f737b-eafc-40c9-984f-ba10e84ce9fc"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="216" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0264c37a-967e-45c8-8491-d665d0d4076a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONE_1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="308" y="0" width="117" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="bd6fb56c-293d-4b33-bb1f-c45e4f643d3a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONE_2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="425" y="0" width="127" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d7f6d5e2-4b5d-4f42-be2a-77e63aaf4725"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CIDADE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="f33aefff-1d7a-48d2-999b-6771bff26440"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="92" height="20" uuid="51dd1e4c-e5a2-4706-831f-21b9732b0a29"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{V_EXPORT_DIALOGDIRETO_CODCONTRI}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="92" y="0" width="124" height="20" uuid="4ae8e259-1f35-4a7b-9cb3-2ffcdd81a8f2"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{V_EXPORT_DIALOGDIRETO_NOME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="216" y="0" width="92" height="20" uuid="b91cf061-9a9d-4714-9b87-20bea92917dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{V_EXPORT_DIALOGDIRETO_TELEFONE_1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="425" y="0" width="127" height="20" uuid="b8b9952f-495e-41e8-81de-712c205c5ae3"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{V_EXPORT_DIALOGDIRETO_CIDADE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="308" y="0" width="117" height="20" uuid="40b5921e-29a2-4b65-ac6d-997ccdea8fe3"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{V_EXPORT_DIALOGDIRETO_TELEFONE_2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="416e3f21-db28-40ca-9369-71c01578d25d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="79714ff8-aefd-449c-b841-b1be80f6d89c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="e943f64b-7214-47af-8442-a8a0ee09e4d5"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
